@@ -19,11 +19,13 @@ The study utilizes the **MOSTA** (Mouse Organogenesis Spatiotemporal Transcripto
 ### Interactive 3D Visualization
 Below are the reconstructed 3D spatial maps of the heart samples processed in this workflow.
 
-=== "🖱️ Mouse E9.5 Heart"
-    <iframe src="assets/plots/3d_heart_E9.5.html" width="100%" height="600px" frameborder="0"></iframe>
+#### 🖱️ Mouse E9.5 Heart
 
-=== "🖱️ Mouse E11.5 Heart"
-    <iframe src="assets/plots/3d_heart_E11.5.html" width="100%" height="600px" frameborder="0"></iframe>
+<iframe src="assets/plots/3d_heart_E9.5.html" width="100%" height="600px" frameborder="0"></iframe>
+
+#### 🖱️ Mouse E11.5 Heart
+
+<iframe src="assets/plots/3d_heart_E11.5.html" width="100%" height="600px" frameborder="0"></iframe>
 
 ---
 
@@ -36,26 +38,33 @@ Without fine-tuning, the raw embeddings show a strong correlation with sequencin
 * **Correction Method**: I attempted to mitigate this by using a linear regression model to remove the variance explained by `log1p(n_counts)`. This reduced the depth effect to some extent.
 * **Result & Interpretation**: Post-correction, the embedding space revealed more complex manifolds. While `n_counts` bias persists, the remaining structures likely encode orthogonal biological signals such as **cell cycle phases** or **metabolic states**. In rapidly proliferating embryonic tissues, these states are often biologically coupled with total RNA content, creating a complex signal that simple regression cannot fully disentangle without explicit biological supervision.
 
-!!! tip "Embedding Visualization"
-    Select a developmental stage to compare the embedding landscape before and after regression.
+### Embedding Visualization Comparison
 
-    === "📅 Stage: E9.5"
-        
-        === "Original UMAP (Bias)"
-            The distribution is dominated by the `n_counts` gradient.
-            ![UMAP Raw](assets/images/umap_mouse_E9p5_heart_cosine.png){ width="600" }
+Below are the UMAP visualizations for both developmental stages, comparing the original embeddings (dominated by `n_counts` gradient) with the regressed versions (revealing complex manifolds).
 
-        === "Regressed UMAP (Improved)"
-            Emergence of complex manifolds, though lineage separation requires further fine-tuning.
-            ![UMAP Regressed](assets/images/umap_mouse_E9p5_heart_corrected.png){ width="600" }
+#### 📅 Stage: E9.5
 
-    === "📅 Stage: E11.5"
-        
-        === "Original UMAP (Bias)"
-            ![UMAP Raw](assets/images/umap_mouse_E11p5_heart_cosine.png){ width="600" }
+**Original UMAP (Bias)**
 
-        === "Regressed UMAP (Improved)"
-            ![UMAP Regressed](assets/images/umap_mouse_E11p5_heart_corrected.png){ width="600" }
+The distribution is dominated by the `n_counts` gradient.
+
+![UMAP Raw E9.5](assets/images/umap_mouse_E9p5_heart_cosine.png)
+
+**Regressed UMAP (Improved)**
+
+Emergence of complex manifolds, though lineage separation requires further fine-tuning.
+
+![UMAP Regressed E9.5](assets/images/umap_mouse_E9p5_heart_corrected.png)
+
+#### 📅 Stage: E11.5
+
+**Original UMAP (Bias)**
+
+![UMAP Raw E11.5](assets/images/umap_mouse_E11p5_heart_cosine.png)
+
+**Regressed UMAP (Improved)**
+
+![UMAP Regressed E11.5](assets/images/umap_mouse_E11p5_heart_corrected.png)
 
 ---
 
@@ -79,33 +88,43 @@ A higher score indicates a significant loss or shift of cellular identity.
 
 !!! tip "Interactive Discovery: Isolate the OFT"
     For **E9.5 Nkx2-5**:
-    The impact is highly localized. To visualize this clearly: **Select the 'Outflow Tract' label** in the figure legend. This will isolate the OFT structure, revealing an intense concentration of high impact scores (red hotspot) that aligns with the etiology of Tetralogy of Fallot.
+    The impact is highly localized. To visualize this clearly: **Only retain the 'Outflow Tract' label** in the figure legend. This will isolate the OFT structure, revealing an intense concentration of high impact scores (red hotspot) that aligns with the etiology of Tetralogy of Fallot.
 
-=== "📅 Stage: E9.5 (Early)"
-    
-    === "🧬 Nkx2-5"
-        **Prediction**: Strong impact localized to the **Outflow Tract (OFT)**.
-        <iframe src="assets/plots/E9p5_Nkx2-5_comparison_3d.html" width="100%" height="500px" frameborder="0"></iframe>
-    
-    === "🧬 Bmpr2"
-        **Prediction**: Localized impact on endothelial/endocardial populations.
-        <iframe src="assets/plots/E9p5_Bmpr2_comparison_3d.html" width="100%" height="500px" frameborder="0"></iframe>
+##### 🧬 Gene: Nkx2-5
 
-    === "🧬 Tbx5"
-        **Prediction**: Impact concentrated in the primitive Atrium and Left Ventricle.
-        <iframe src="assets/plots/E9p5_Tbx5_comparison_3d.html" width="100%" height="500px" frameborder="0"></iframe>
+**Prediction**: Strong impact localized to the **Outflow Tract (OFT)**.
 
-=== "📅 Stage: E11.5 (Mid)"
-    
-    === "🧬 Nkx2-5"
-        **Prediction**: Impact shifts towards the Ventricular Septum and chamber walls.
-        <iframe src="assets/plots/E11p5_Nkx2-5_comparison_3d.html" width="100%" height="500px" frameborder="0"></iframe>
-    
-    === "🧬 Bmpr2"
-        <iframe src="assets/plots/E11p5_Bmpr2_comparison_3d.html" width="100%" height="500px" frameborder="0"></iframe>
+<iframe src="assets/plots/E9p5_Nkx2-5_comparison_3d.html" width="100%" height="500px" frameborder="0"></iframe>
 
-    === "🧬 Tbx5"
-        <iframe src="assets/plots/E11p5_Tbx5_comparison_3d.html" width="100%" height="500px" frameborder="0"></iframe>
+##### 🧬 Gene: Bmpr2
+
+**Prediction**: Localized impact on endothelial/endocardial populations.
+
+<iframe src="assets/plots/E9p5_Bmpr2_comparison_3d.html" width="100%" height="500px" frameborder="0"></iframe>
+
+##### 🧬 Gene: Tbx5
+
+**Prediction**: Impact concentrated in the primitive Atrium and Left Ventricle.
+
+<iframe src="assets/plots/E9p5_Tbx5_comparison_3d.html" width="100%" height="500px" frameborder="0"></iframe>
+
+---
+
+#### 📅 Stage: E11.5 (Mid Cardiac Development)
+
+##### 🧬 Gene: Nkx2-5
+
+**Prediction**: Impact shifts towards the Ventricular Septum and chamber walls.
+
+<iframe src="assets/plots/E11p5_Nkx2-5_comparison_3d.html" width="100%" height="500px" frameborder="0"></iframe>
+
+##### 🧬 Gene: Bmpr2
+
+<iframe src="assets/plots/E11p5_Bmpr2_comparison_3d.html" width="100%" height="500px" frameborder="0"></iframe>
+
+##### 🧬 Gene: Tbx5
+
+<iframe src="assets/plots/E11p5_Tbx5_comparison_3d.html" width="100%" height="500px" frameborder="0"></iframe>
 
 ---
 
@@ -119,8 +138,10 @@ To quantify the "Functional Shift" over developmental time, I aggregated the imp
     
     By **E11.5**, this focused impact dissipates (decreasing to 0.3e-5), mirroring the anatomical timeline where OFT morphogenesis concludes and septation begins.
 
-=== "Heatmap: E9.5"
-    ![Heatmap E9.5](assets/images/E9p5_multi_gene_heatmap.png)
+#### Heatmap: E9.5
 
-=== "Heatmap: E11.5"
-    ![Heatmap E11.5](assets/images/E11p5_multi_gene_heatmap.png)
+![Heatmap E9.5](assets/images/E9p5_multi_gene_heatmap.png)
+
+#### Heatmap: E11.5
+
+![Heatmap E11.5](assets/images/E11p5_multi_gene_heatmap.png)
