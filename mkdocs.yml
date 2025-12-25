@@ -23,6 +23,3 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true 
   - attr_list
-  - toc:
-    permalink: true
-    toc_depth: 3
