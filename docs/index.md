@@ -19,11 +19,11 @@ The study utilizes the **MOSTA** (Mouse Organogenesis Spatiotemporal Transcripto
 ### Interactive 3D Visualization
 Below are the reconstructed 3D spatial maps of the heart samples processed in this workflow.
 
-#### 🖱️ Mouse E9.5 Heart
+#### 🫀 Mouse E9.5 Heart
 
 <iframe src="assets/plots/3d_heart_E9.5.html" width="100%" height="600px" frameborder="0"></iframe>
 
-#### 🖱️ Mouse E11.5 Heart
+#### 🫀 Mouse E11.5 Heart
 
 <iframe src="assets/plots/3d_heart_E11.5.html" width="100%" height="600px" frameborder="0"></iframe>
 
@@ -90,6 +90,7 @@ A higher score indicates a significant loss or shift of cellular identity.
     For **E9.5 Nkx2-5**:
     The impact is highly localized. To visualize this clearly: **Only retain the 'Outflow Tract' label** in the figure legend. This will isolate the OFT structure, revealing an intense concentration of high impact scores (red hotspot) that aligns with the etiology of Tetralogy of Fallot.
 
+#### 📅 Stage: E9.5 (Early)
 ##### 🧬 Gene: Nkx2-5
 
 **Prediction**: Strong impact localized to the **Outflow Tract (OFT)**.
