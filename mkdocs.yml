@@ -1,5 +1,9 @@
 site_name: "Preliminary Results: 4D Virtual Heart"
 
+site_url: https://sscottwang.github.io/virtual-heart-demo/
+
+use_directory_urls: true
+
 theme:
   name: material
   palette:

@@ -3,7 +3,7 @@
 ## 1. Data Processing & Model Architecture
 
 ### 🧬 Rapid Prototyping Strategy
-To get a quick baseline given the short timeline, I used **Geneformer**. It is pretrained on human data, allowing me to start immediately without spending weeks training a foundation model from scratch.
+To get a quick baseline given the short timeline, I used **Geneformer** [[Theodoris et al., Nature 2023](https://doi.org/10.1038/s41586-023-06139-9)]. It is pretrained on human data, allowing me to start immediately without spending weeks training a foundation model from scratch.
 
 !!! note "Current Limitations"
     This is a preliminary demo, so there are a few technical trade-offs:
