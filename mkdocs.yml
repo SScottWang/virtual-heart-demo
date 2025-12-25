@@ -5,7 +5,7 @@ site_url: https://sscottwang.github.io/virtual-heart-demo/
 use_directory_urls: true
 
 theme:
-  name: readthedocs
+  name: mkdocs
   palette:
     primary: red      
     accent: deep orange
