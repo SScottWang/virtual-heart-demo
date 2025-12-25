@@ -1,0 +1,21 @@
+site_name: "Preliminary Results: 4D Virtual Heart"
+
+theme:
+  name: material
+  palette:
+    primary: red      
+    accent: deep orange
+  features:
+    - navigation.tabs
+    - navigation.sections
+
+nav:
+  - Project Overview: index.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - attr_list
