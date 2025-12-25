@@ -92,16 +92,12 @@
 </ul>
 <h3 id="interactive-3d-visualization">Interactive 3D Visualization</h3>
 <p>Below are the reconstructed 3D spatial maps of the heart samples processed in this workflow.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">🖱️ Mouse E9.5 Heart</label><label for="__tabbed_1_2">🖱️ Mouse E11.5 Heart</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p><iframe src="assets/plots/3d_heart_E9.5.html" width="100%" height="600px" frameborder="0"></iframe></p>
-</div>
-<div class="tabbed-block">
-<p><iframe src="assets/plots/3d_heart_E11.5.html" width="100%" height="600px" frameborder="0"></iframe></p>
-</div>
-</div>
-</div>
+<h4 id="mouse-e95-heart">🖱️ Mouse E9.5 Heart</h4>
+<iframe src="assets/plots/3d_heart_E9.5.html" width="100%" height="600px" frameborder="0"></iframe>
+
+<h4 id="mouse-e115-heart">🖱️ Mouse E11.5 Heart</h4>
+<iframe src="assets/plots/3d_heart_E11.5.html" width="100%" height="600px" frameborder="0"></iframe>
+
 <hr />
 <h2 id="2-embedding-space-analysis">2. Embedding Space Analysis</h2>
 <h3 id="analysis-of-embedding-bias">🔍 Analysis of Embedding Bias</h3>
@@ -111,40 +107,20 @@
 <li><strong>Correction Method</strong>: I attempted to mitigate this by using a linear regression model to remove the variance explained by <code>log1p(n_counts)</code>. This reduced the depth effect to some extent.</li>
 <li><strong>Result &amp; Interpretation</strong>: Post-correction, the embedding space revealed more complex manifolds. While <code>n_counts</code> bias persists, the remaining structures likely encode orthogonal biological signals such as <strong>cell cycle phases</strong> or <strong>metabolic states</strong>. In rapidly proliferating embryonic tissues, these states are often biologically coupled with total RNA content, creating a complex signal that simple regression cannot fully disentangle without explicit biological supervision.</li>
 </ul>
-<div class="admonition tip">
-<p class="admonition-title">Embedding Visualization</p>
-<p>Select a developmental stage to compare the embedding landscape before and after regression.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">📅 Stage: E9.5</label><label for="__tabbed_2_2">📅 Stage: E11.5</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Original UMAP (Bias)</label><label for="__tabbed_3_2">Regressed UMAP (Improved)</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>The distribution is dominated by the <code>n_counts</code> gradient.
-<img alt="UMAP Raw" src="assets/images/umap_mouse_E9p5_heart_cosine.png" width="600" /></p>
-</div>
-<div class="tabbed-block">
-<p>Emergence of complex manifolds, though lineage separation requires further fine-tuning.
-<img alt="UMAP Regressed" src="assets/images/umap_mouse_E9p5_heart_corrected.png" width="600" /></p>
-</div>
-</div>
-</div>
-</div>
-<div class="tabbed-block">
-<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Original UMAP (Bias)</label><label for="__tabbed_4_2">Regressed UMAP (Improved)</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p><img alt="UMAP Raw" src="assets/images/umap_mouse_E11p5_heart_cosine.png" width="600" /></p>
-</div>
-<div class="tabbed-block">
-<p><img alt="UMAP Regressed" src="assets/images/umap_mouse_E11p5_heart_corrected.png" width="600" /></p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<h3 id="embedding-visualization-comparison">Embedding Visualization Comparison</h3>
+<p>Below are the UMAP visualizations for both developmental stages, comparing the original embeddings (dominated by <code>n_counts</code> gradient) with the regressed versions (revealing complex manifolds).</p>
+<h4 id="stage-e95">📅 Stage: E9.5</h4>
+<p><strong>Original UMAP (Bias)</strong></p>
+<p>The distribution is dominated by the <code>n_counts</code> gradient.</p>
+<p><img alt="UMAP Raw E9.5" src="assets/images/umap_mouse_E9p5_heart_cosine.png" /></p>
+<p><strong>Regressed UMAP (Improved)</strong></p>
+<p>Emergence of complex manifolds, though lineage separation requires further fine-tuning.</p>
+<p><img alt="UMAP Regressed E9.5" src="assets/images/umap_mouse_E9p5_heart_corrected.png" /></p>
+<h4 id="stage-e115">📅 Stage: E11.5</h4>
+<p><strong>Original UMAP (Bias)</strong></p>
+<p><img alt="UMAP Raw E11.5" src="assets/images/umap_mouse_E11p5_heart_cosine.png" /></p>
+<p><strong>Regressed UMAP (Improved)</strong></p>
+<p><img alt="UMAP Regressed E11.5" src="assets/images/umap_mouse_E11p5_heart_corrected.png" /></p>
 <hr />
 <h2 id="3-spatiotemporal-in-silico-perturbation">3. Spatiotemporal In Silico Perturbation</h2>
 <p>I performed <em>in silico</em> deletion of key transcription factors to predict their functional impact on cardiac morphogenesis.</p>
@@ -162,46 +138,32 @@
 <div class="admonition tip">
 <p class="admonition-title">Interactive Discovery: Isolate the OFT</p>
 <p>For <strong>E9.5 Nkx2-5</strong>:
-The impact is highly localized. To visualize this clearly: <strong>Select the 'Outflow Tract' label</strong> in the figure legend. This will isolate the OFT structure, revealing an intense concentration of high impact scores (red hotspot) that aligns with the etiology of Tetralogy of Fallot.</p>
+The impact is highly localized. To visualize this clearly: <strong>Only retain the 'Outflow Tract' label</strong> in the figure legend. This will isolate the OFT structure, revealing an intense concentration of high impact scores (red hotspot) that aligns with the etiology of Tetralogy of Fallot.</p>
 </div>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">📅 Stage: E9.5 (Early)</label><label for="__tabbed_5_2">📅 Stage: E11.5 (Mid)</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">🧬 Nkx2-5</label><label for="__tabbed_6_2">🧬 Bmpr2</label><label for="__tabbed_6_3">🧬 Tbx5</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p><strong>Prediction</strong>: Strong impact localized to the <strong>Outflow Tract (OFT)</strong>.
-<iframe src="assets/plots/E9p5_Nkx2-5_comparison_3d.html" width="100%" height="500px" frameborder="0"></iframe></p>
-</div>
-<div class="tabbed-block">
-<p><strong>Prediction</strong>: Localized impact on endothelial/endocardial populations.
-<iframe src="assets/plots/E9p5_Bmpr2_comparison_3d.html" width="100%" height="500px" frameborder="0"></iframe></p>
-</div>
-<div class="tabbed-block">
-<p><strong>Prediction</strong>: Impact concentrated in the primitive Atrium and Left Ventricle.
-<iframe src="assets/plots/E9p5_Tbx5_comparison_3d.html" width="100%" height="500px" frameborder="0"></iframe></p>
-</div>
-</div>
-</div>
-</div>
-<div class="tabbed-block">
-<div class="tabbed-set tabbed-alternate" data-tabs="7:3"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">🧬 Nkx2-5</label><label for="__tabbed_7_2">🧬 Bmpr2</label><label for="__tabbed_7_3">🧬 Tbx5</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p><strong>Prediction</strong>: Impact shifts towards the Ventricular Septum and chamber walls.
-<iframe src="assets/plots/E11p5_Nkx2-5_comparison_3d.html" width="100%" height="500px" frameborder="0"></iframe></p>
-</div>
-<div class="tabbed-block">
-<p><iframe src="assets/plots/E11p5_Bmpr2_comparison_3d.html" width="100%" height="500px" frameborder="0"></iframe></p>
-</div>
-<div class="tabbed-block">
-<p><iframe src="assets/plots/E11p5_Tbx5_comparison_3d.html" width="100%" height="500px" frameborder="0"></iframe></p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<h5 id="gene-nkx2-5">🧬 Gene: Nkx2-5</h5>
+<p><strong>Prediction</strong>: Strong impact localized to the <strong>Outflow Tract (OFT)</strong>.</p>
+<iframe src="assets/plots/E9p5_Nkx2-5_comparison_3d.html" width="100%" height="500px" frameborder="0"></iframe>
+
+<h5 id="gene-bmpr2">🧬 Gene: Bmpr2</h5>
+<p><strong>Prediction</strong>: Localized impact on endothelial/endocardial populations.</p>
+<iframe src="assets/plots/E9p5_Bmpr2_comparison_3d.html" width="100%" height="500px" frameborder="0"></iframe>
+
+<h5 id="gene-tbx5">🧬 Gene: Tbx5</h5>
+<p><strong>Prediction</strong>: Impact concentrated in the primitive Atrium and Left Ventricle.</p>
+<iframe src="assets/plots/E9p5_Tbx5_comparison_3d.html" width="100%" height="500px" frameborder="0"></iframe>
+
+<hr />
+<h4 id="stage-e115-mid-cardiac-development">📅 Stage: E11.5 (Mid Cardiac Development)</h4>
+<h5 id="gene-nkx2-5_1">🧬 Gene: Nkx2-5</h5>
+<p><strong>Prediction</strong>: Impact shifts towards the Ventricular Septum and chamber walls.</p>
+<iframe src="assets/plots/E11p5_Nkx2-5_comparison_3d.html" width="100%" height="500px" frameborder="0"></iframe>
+
+<h5 id="gene-bmpr2_1">🧬 Gene: Bmpr2</h5>
+<iframe src="assets/plots/E11p5_Bmpr2_comparison_3d.html" width="100%" height="500px" frameborder="0"></iframe>
+
+<h5 id="gene-tbx5_1">🧬 Gene: Tbx5</h5>
+<iframe src="assets/plots/E11p5_Tbx5_comparison_3d.html" width="100%" height="500px" frameborder="0"></iframe>
+
 <hr />
 <h3 id="quantitative-analysis-cell-type-vulnerability">📈 Quantitative Analysis: Cell Type Vulnerability</h3>
 <p>To quantify the "Functional Shift" over developmental time, I aggregated the impact scores by annotated cell types.</p>
@@ -211,16 +173,10 @@ The impact is highly localized. To visualize this clearly: <strong>Select the 'O
 <p>At <strong>E9.5</strong>, the <em>Nkx2-5</em> deletion yields the highest impact score (<strong>1.7e-5</strong>) specifically in the <strong>Outflow Tract (OFT)</strong>, which is nearly <strong>8x higher</strong> than in the Right Ventricle. This computationally recapitulates the "Critical Window" for OFT formation, identifying it as the most vulnerable structure to <em>Nkx2-5</em> loss at this specific stage. </p>
 <p>By <strong>E11.5</strong>, this focused impact dissipates (decreasing to 0.3e-5), mirroring the anatomical timeline where OFT morphogenesis concludes and septation begins.</p>
 </div>
-<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Heatmap: E9.5</label><label for="__tabbed_8_2">Heatmap: E11.5</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
+<h4 id="heatmap-e95">Heatmap: E9.5</h4>
 <p><img alt="Heatmap E9.5" src="assets/images/E9p5_multi_gene_heatmap.png" /></p>
-</div>
-<div class="tabbed-block">
-<p><img alt="Heatmap E11.5" src="assets/images/E11p5_multi_gene_heatmap.png" /></p>
-</div>
-</div>
-</div></div>
+<h4 id="heatmap-e115">Heatmap: E11.5</h4>
+<p><img alt="Heatmap E11.5" src="assets/images/E11p5_multi_gene_heatmap.png" /></p></div>
             </div>
         </div>
 
@@ -302,5 +258,5 @@ The impact is highly localized. To visualize this clearly: <strong>Select the 'O
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2025-12-25 19:42:41.939178+00:00
+Build Date UTC : 2025-12-25 20:00:16.026386+00:00
 -->
