@@ -1,5 +1,3 @@
-# Project Report: 4D Virtual Heart
-
 ## 1. Data Processing & Model Architecture
 
 ### 🧬 Rapid Prototyping Strategy
