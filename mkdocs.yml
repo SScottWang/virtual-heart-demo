@@ -10,8 +10,8 @@ theme:
     primary: red      
     accent: deep orange
   features:
-    - navigation.tabs
-    - navigation.sections
+    # - navigation.tabs
+    # - navigation.sections
 
 # nav:
 #   - Project Overview: index.md
