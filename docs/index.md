@@ -79,7 +79,7 @@ A higher score indicates a significant loss or shift of cellular identity.
 
 !!! tip "Interactive Discovery: Isolate the OFT"
     For **E9.5 Nkx2-5**:
-    The impact is highly localized. To visualize this clearly: **Double-click on the 'Outflow Tract' label** in the figure legend. This will isolate the OFT structure, revealing an intense concentration of high impact scores (red hotspot) that aligns with the etiology of Tetralogy of Fallot.
+    The impact is highly localized. To visualize this clearly: **Select the 'Outflow Tract' label** in the figure legend. This will isolate the OFT structure, revealing an intense concentration of high impact scores (red hotspot) that aligns with the etiology of Tetralogy of Fallot.
 
 === "📅 Stage: E9.5 (Early)"
     
