@@ -5,11 +5,11 @@ site_url: https://sscottwang.github.io/virtual-heart-demo/
 use_directory_urls: true
 
 theme:
-  name: material
+  name: readthedocs
   palette:
     primary: red      
     accent: deep orange
-  features:
+  # features:
     # - navigation.tabs
     # - navigation.sections
 
@@ -23,3 +23,6 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true 
   - attr_list
+  - toc:
+    permalink: true
+    toc_depth: 3
