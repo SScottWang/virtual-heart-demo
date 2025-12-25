@@ -13,8 +13,8 @@ theme:
     - navigation.tabs
     - navigation.sections
 
-nav:
-  - Project Overview: index.md
+# nav:
+#   - Project Overview: index.md
 
 markdown_extensions:
   - admonition
